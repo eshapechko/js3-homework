@@ -199,7 +199,7 @@ for (item of users) {
 let vegetables = ["морковь", "баклажан", "репа", "топинамбур"];
 for (i = 0; i < vegetables.length; i++) {
   if (vegetables[i]) {
-    vegetables[i] = `word: ${vegetables[i]}, length: ${vegetables.length}`;
+    vegetables[i] = `word: ${vegetables[i]}, length: ${vegetables[i].length}`;
   }
 }
 console.log(vegetables);
