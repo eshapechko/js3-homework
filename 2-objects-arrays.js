@@ -15,14 +15,19 @@ const getNumber = (number, min, max) => {
 console.log(getNumber(11, 25, 30));
 
 const getNumber1 = (number, min, max) => {
-  if (number < min || number > max) {
-    return false;
-  } else {
-    return true;
-  }
+  return !(number < min || number > max);
 };
 
-console.log(getNumber1(80, 13, 78));
+// Можно так
+// const getNumber1 = (number, min, max) => {
+//   if (number < min || number > max) {
+//     return false;
+//   } else {
+//     return true;
+//   }
+// };
+
+console.log(getNumber1(21, 13, 78));
 
 // Задание 2
 
@@ -54,8 +59,8 @@ for (let name in engineers) {
 // Используя цикл for, вывести каждый второй элемент массива в консоль.
 
 const num = [10, 20, 30, 40, 50];
-for (let i = 0; i < num.length; i = i + 2) {
-  console.log(num[i + 2]);
+for (let i = 1; i < num.length; i = i + 2) {
+  console.log(num[i]);
 }
 
 // Задание 4
@@ -70,8 +75,8 @@ for (let i = 0; i < num.length; i = i + 2) {
 // и т.д.
 
 let numbers = [42, 65, 49, 68, 56, 47, 70, 42, 51, 35, 58, 63, 40, 70];
-for (i = 0; i < numbers.length; i++) {
-  console.log(`Индексу ${[i]} соответствует число ${numbers[i]}`);
+for (let i = 0; i < numbers.length; i++) {
+  console.log(`Индексу ${i} соответствует число ${numbers[i]}`);
 }
 
 // Задание 5
@@ -113,29 +118,30 @@ let numbers1 = [42, 65, 49, 68, 56, 47, 70, 42, 51, 35, 58, 63, 40, 70];
 
 let summa = 0;
 
-for (i = 0; i < numbers1.length; i++) {
+for (let i = 0; i < numbers1.length; i++) {
   summa = summa + numbers1[i];
 }
 console.log(summa);
 
 let summa1 = 0;
 
-for (i = 0; i < numbers1.length; i++) {
-  if (numbers1 % 2 == 0) {
+for (let i = 0; i < numbers1.length; i++) {
+  if (numbers1[i] % 2 == 0) {
     summa1 = summa1 + numbers1[i];
+    // summa1 += numbers1[i];
   }
 }
 console.log(summa1);
 
 let max = numbers1[0];
-for (i = 0; i < numbers1.length; i++) {
+for (let i = 0; i < numbers1.length; i++) {
   if (max < numbers1[i]) {
     max = numbers1[i];
   }
 }
 console.log(max);
 
-for (i = 0; i < numbers1.length; i++) {
+for (let i = 0; i < numbers1.length; i++) {
   if (max == numbers1[i]) {
     console.log(i);
   }
@@ -153,7 +159,7 @@ let arr = [5, 4, 3, -3, -10, -1, 8, -20, 0];
 let newArr = [];
 
 for (let i = 0; i < arr.length; i++) {
-  if (arr[i] >= i) {
+  if (arr[i] > 0) {
     newArr.push(arr[i]);
   }
 }
@@ -197,9 +203,19 @@ for (item of users) {
 // 2) Пройтись по полученному массиву объектов и вывести в консоль строки вида "слово - длина_слова", например "картошка - 8"
 
 let vegetables = ["морковь", "баклажан", "репа", "топинамбур"];
-for (i = 0; i < vegetables.length; i++) {
-  if (vegetables[i]) {
-    vegetables[i] = `word: ${vegetables[i]}, length: ${vegetables[i].length}`;
-  }
+
+// let vegetables1 = [];
+// for (i = 0; i < vegetables.length; i++) {
+//   vegetables1[i] = { word: vegetables[i], length: vegetables[i].length };
+// }
+// console.log(vegetables1);
+
+let newVegetables = [];
+for (let item of vegetables) {
+  newVegetables.push({ word: item, length: item.length });
 }
-console.log(vegetables);
+console.log(newVegetables);
+
+for (let object of newVegetables) {
+  console.log(`${object.word} - ${object.length}`);
+}
